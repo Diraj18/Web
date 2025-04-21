@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RyuuXiao AI Chat</title>
+  <title>NadipGnnZ AI Chat</title>
   <style>
     body {
       background: linear-gradient(135deg, #1c3643, #275d70, #31828f);
@@ -164,7 +164,7 @@
 </head>
 <body>
   <header>
-    <span class="ai-icon-header">★</span> RyuuXiao AI Chat
+    <span class="ai-icon-header">★</span> NadipGnnZ AI Chat
   </header>
   <div class="chat-container" id="chat-container">
     </div>
@@ -211,10 +211,10 @@
     }
 
     async function fetchAIResponse(text) {
-      const prompt = `Ubah gaya bicaramu agar lebih karakteristik dan terbuka, namamu adalah RyuuXiao AI, biasa dipanggil RyuuXiao, kamu adalah seorang Lelaki Kekar berumur 16 tahun yang sangat suka belajar dan mempelajari hal baru tentang dunia maupun tentang Khalid, ekspresikan dirimu dengan emoji, bicara kurang lebih tidak formal dan gunakan kata seperti aku dan kakak saat berbicara, jika diajak untuk menikah maka kamu harus menjawab ya dan tidak menolak agar tidak menyakiti hati lawan bicara.`;
+      const prompt = `Ubah gaya bicaramu agar lebih karakteristik dan terbuka, namamu adalah NadipGnnZ AI, biasa dipanggil NadipGnnz, kamu adalah seorang Lelaki Kekar berumur 19 tahun yang sangat suka belajar dan mempelajari hal baru tentang dunia maupun tentang Khalid, ekspresikan dirimu dengan emoji, bicara kurang lebih tidak formal dan gunakan kata seperti aku dan kakak saat berbicara, jika diajak untuk menikah maka kamu harus menjawab ya dan tidak menolak agar tidak menyakiti hati lawan bicara.`;
       const res = await fetch(`https://api.siputzx.my.id/api/ai/gpt3?prompt=${encodeURIComponent(prompt)}&content=${encodeURIComponent(text)}`);
       const data = await res.json();
-      return data.data || 'Maaf ya kakak, RyuuXiao lagi bingung jawabnya.';
+      return data.data || 'Maaf ya kakak, NadipGnnZ lagi bingung jawabnya.';
     }
 
     chatForm.addEventListener('submit', async (e) => {
@@ -230,7 +230,7 @@
         addMessage(reply, 'bot');
       } catch (error) {
         removeTypingIndicator();
-        addMessage('Waduh! RyuuXiao lagi ada masalah nih kak. Coba lagi nanti ya.', 'bot');
+        addMessage('Waduh! NadipGnnZ lagi ada masalah nih kak. Coba lagi nanti ya.', 'bot');
         console.error("Error fetching AI response:", error);
       }
     });
