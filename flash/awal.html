@@ -75,7 +75,7 @@
 
     <div class="product">
       <h2>Canva Pro 1 Bulan</h2>
-      <p class="stock" id="stockText">Stok: <span id="stockCount">2</span></p>
+      <p class="stock" id="stockText">Stok: <span id="stockCount">0</span></p>
       <button id="whatsappBtn" onclick="handleOrder()">Order via WhatsApp</button>
       <p id="soldOutText" class="soldout" style="display: none;">Produk Habis!</p>
     </div>
@@ -96,7 +96,7 @@
 
         // Ganti nomor dan pesan WhatsApp di bawah ini sesuai kebutuhanmu
         const waNumber = '6288976108929'; // ganti dengan nomor admin kamu
-        const message = encodeURIComponent("Halo admin, saya ingin order Canva Pro 1 Bulan.");
+        const message = encodeURIComponent("Halo admin, saya ingin order Canva Pro 1 Bulan Yang Flash sale.");
         const waLink = `https://wa.me/${waNumber}?text=${message}`;
 
         window.open(waLink, '_blank');
