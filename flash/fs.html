@@ -71,7 +71,7 @@
 <div class="flash-sale" id="product-netflix">
   <div class="product-title">Netflix Premium</div>
   <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="product-img">
-  <div class="stock">Stok: <span id="stock-netflix">5</span></div>
+  <div class="stock">Stok: <span id="stock-netflix"></span></div>
   <button class="buy-btn" onclick="order('netflix')" id="btn-netflix">Beli via WhatsApp</button>
 </div>
 
@@ -79,7 +79,7 @@
 <div class="flash-sale" id="product-alight">
   <div class="product-title">Alight Motion Pro</div>
   <img src="https://play-lh.googleusercontent.com/F9RI0X6KOj84iEl03ZP1RPjVHQfYFHVyuvcvTOBZvQnXIPwvutReaZoG1nDLgfF_Cp0=w240-h480-rw" alt="Alight Motion" class="product-img">
-  <div class="stock">Stok: <span id="stock-alight">3</span></div>
+  <div class="stock">Stok: <span id="stock-alight"></span></div>
   <button class="buy-btn" onclick="order('alight')" id="btn-alight">Beli via WhatsApp</button>
 </div>
 
@@ -88,8 +88,8 @@
 <script>
   // Load stok dari localStorage atau inisialisasi awal
   let stock = JSON.parse(localStorage.getItem('stock')) || {
-    netflix: 5,
-    alight: 3
+    netflix: 0,
+    alight: 0
   };
 
   let pending = localStorage.getItem('pendingPurchase');
@@ -112,7 +112,7 @@
     if (stock[product] > 0) {
       localStorage.setItem('pendingPurchase', product);
 
-      const waNumber = '628123456789'; // Ganti dengan nomor WA kamu
+      const waNumber = '6288976108929'; // Ganti dengan nomor WA kamu
       const message = encodeURIComponent(`Halo, saya ingin beli produk *${product.toUpperCase()}*.`);
       const waLink = `https://wa.me/${waNumber}?text=${message}`;
 
