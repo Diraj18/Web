@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Flash Sale</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #fefefe;
+    }
+
+    .flash-sale {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .product-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .product-img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .stock {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .buy-btn {
+      padding: 10px 20px;
+      background: #4caf50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .buy-btn:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      font-size: 30px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Netflix -->
+<div class="flash-sale" id="product-netflix">
+  <div class="product-title">Netflix Premium</div>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="product-img">
+  <div class="stock">Stok: <span id="stock-netflix">5</span></div>
+  <button class="buy-btn" onclick="order('netflix')" id="btn-netflix">Beli via WhatsApp</button>
+</div>
+
+<!-- Alight Motion -->
+<div class="flash-sale" id="product-alight">
+  <div class="product-title">Alight Motion Pro</div>
+  <img src="https://play-lh.googleusercontent.com/F9RI0X6KOj84iEl03ZP1RPjVHQfYFHVyuvcvTOBZvQnXIPwvutReaZoG1nDLgfF_Cp0=w240-h480-rw" alt="Alight Motion" class="product-img">
+  <div class="stock">Stok: <span id="stock-alight">3</span></div>
+  <button class="buy-btn" onclick="order('alight')" id="btn-alight">Beli via WhatsApp</button>
+</div>
+
+<div class="overlay" id="sold-out">Stok Habis!</div>
+
+<script>
+  // Load stok dari localStorage atau inisialisasi awal
+  let stock = JSON.parse(localStorage.getItem('stock')) || {
+    netflix: 5,
+    alight: 3
+  };
+
+  let pending = localStorage.getItem('pendingPurchase');
+
+  if (pending) {
+    stock[pending]--;
+    localStorage.removeItem('pendingPurchase');
+    localStorage.setItem('stock', JSON.stringify(stock));
+  }
+
+  // Update tampilan stok dan tombol
+  for (let key in stock) {
+    document.getElementById(`stock-${key}`).textContent = stock[key];
+    if (stock[key] === 0) {
+      document.getElementById(`btn-${key}`).disabled = true;
+    }
+  }
+
+  function order(product) {
+    if (stock[product] > 0) {
+      localStorage.setItem('pendingPurchase', product);
+
+      const waNumber = '628123456789'; // Ganti dengan nomor WA kamu
+      const message = encodeURIComponent(`Halo, saya ingin beli produk *${product.toUpperCase()}*.`);
+      const waLink = `https://wa.me/${waNumber}?text=${message}`;
+
+      window.location.href = waLink;
+    }
+  }
+</script>
+
+</body>
+</html>
