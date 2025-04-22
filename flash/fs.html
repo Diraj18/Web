@@ -83,12 +83,20 @@
   <button class="buy-btn" onclick="order('alight')" id="btn-alight">Beli via WhatsApp</button>
 </div>
 
-  <!-- Canva -->
+<!-- Canva -->
 <div class="flash-sale" id="product-canva">
   <div class="product-title">Canva Pro</div>
   <img src="https://files.catbox.moe/4i7hwc.png" alt="Canva" class="product-img">
   <div class="stock">Stok: <span id="stock-canva"></span></div>
   <button class="buy-btn" onclick="order('canva')" id="btn-canva">Beli via WhatsApp</button>
+</div>
+
+<!-- Capcut -->
+<div class="flash-sale" id="product-capcut">
+  <div class="product-title">Capcut Pro</div>
+  <img src="https://files.catbox.moe/s04aui.jpg" alt="Capcut" class="product-img">
+  <div class="stock">Stok: <span id="stock-capcut"></span></div>
+  <button class="buy-btn" onclick="order('capcut')" id="btn-capcut">Beli via WhatsApp</button>
 </div>
 
 
@@ -99,7 +107,8 @@
   let stock = JSON.parse(localStorage.getItem('stock')) || {
     netflix: 0,
     alight: 0,
-    canva: 0
+    canva: 0,
+    capcut: 0
   };
 
   let pending = localStorage.getItem('pendingPurchase');
